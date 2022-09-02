@@ -25,6 +25,6 @@ int main(void){
 	arr_pointer1(x); 
 	int* p = x;
 	arr_pointer2(&p); 
-	arr_pointer2(&x); 
+	//arr_pointer2(&x); 배열은 주소를 생성한 후 사용할 수 없다. 
 	arr_pointer3(*x);
 } 
