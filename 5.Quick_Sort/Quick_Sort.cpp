@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define SWAP(x, y, temp) ((temp)=(x), (x)=(y), (y)=(temp))
-// 퀵 정렬 N * logN
+// 퀵 정렬 평균 O(N * logN), 최악 사간 복잡도는 O(N^2) => 정렬이 되어있는 경우 제일 느림...
 // 재귀함수를 사용. 
 int N = 10;
 int array[10] = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
