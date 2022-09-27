@@ -7,6 +7,7 @@ int number = 7;
 int c[7];
 vector<int> a[8];
 
+// stack 대신 재귀함수를 사용 (컴퓨터 기본구조 stackframe) 
 void dfs(int x) {
 	if(c[x]) return;
 	c[x] = true;
