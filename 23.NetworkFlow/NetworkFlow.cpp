@@ -14,9 +14,9 @@ using namespace std;
 // BFS[너비우선탐색]를 사용 : Queue를 이용하는 알고리즘 
 
 int n = 6, result; 						// n: 정점의 개수, result: 결과[최대유량]
-int c[MAX][MAX], f[MAX][MAX], d[MAX]; 	// c[capacity]:용량
-										// f[flow]:유량, d: 방문여부
-vector<int> a[MAX];						// 연결된 간선을 표현 
+int c[MAX][MAX], f[MAX][MAX], d[MAX]; 	// c[capacity]:용량, f[flow]:유량
+										// d: 방문여부(-1: x / 다른수: o)
+vector<int> a[MAX];						// 연결된 간선을 표현, ex) A와B는 연결 
 
 // start -> end
 void maxFlow(int start, int end){
@@ -32,32 +32,36 @@ void maxFlow(int start, int end){
 			q.pop();
 			for(int i = 0; i < a[x].size(); i++){
 				int y = a[x][i];
+				
 				// 방문하지 않은 노드 중에서 용량이 남은 경우
 				// 즉, 흐를 수 있는 경우 and 방문하지 않은 경우 
 				if(c[x][y] - f[x][y] > 0 && d[y] == -1){
 					q.push(y);
-					d[y] = x;	// 경로를 기억합니다. 
+					d[y] = x;	// 방문표시와 경로를 기억합니다. a->b->c
 					if(y == end) break;	// 도착지에 도달을 한 경우. 
 				} 
 			}
 		}
 		// 모든 경로를 다 찾은 뒤에 탈출합니다. 
 		if(d[end] == -1) break;
+		
 		int flow = INF;
-		// 거꾸로 최소 유량 탐색합니다. 
+		// 거꾸로 최소 유량 탐색합니다. c->b->a, 경로중 최소값을 찾기 
 		for(int i = end; i != start; i = d[i]){
 			flow = min(flow, c[d[i]][i] - f[d[i]][i]); 
 		}
 		// 최소 유량만큼 추가합니다. 
 		for(int i = end; i != start; i = d[i]){
+			// 찾은 최소값은 유량에 더하기 
 			f[d[i]][i] += flow; 
+			// 반대로 음의 유량에 빼기 
 			f[i][d[i]] -= flow;
 		}
 		result += flow;
 	}
-
 }
 
+// 정점, 간선, 경로 설정 
 void setting(){
 	a[1].push_back(2);
 	a[2].push_back(1);
