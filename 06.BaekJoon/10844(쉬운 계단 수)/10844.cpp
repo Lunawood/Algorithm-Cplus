@@ -22,7 +22,7 @@ int main(void){
 	cin >> N;
 	dp(N);
 	for(int i = 0; i < 10; i++){
-		result += d[N-1][i];
+		result = (result + d[N-1][i]) % 1000000000;
 	}
 	cout << result;
 	return 0;
