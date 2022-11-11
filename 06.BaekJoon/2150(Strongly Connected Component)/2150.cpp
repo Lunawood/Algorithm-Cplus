@@ -1,4 +1,5 @@
 #include<iostream>
+#include<algorithm>
 #include<stack>
 #include<vector>
 #define MAX 100001
@@ -12,7 +13,7 @@ stack<int> s;
 int id;	// 고유번호 (번호가 작을수록 그룹의 부모)
  
 int dfs(int x){
-	d[x] = ++id;	// 방문처리
+	d[x] = ++id;// 고유번호 입력 및 방문처리
 	s.push(x);	// 스택
 	
 	int parent = d[x];	// parent : 그룹의 부모 
@@ -34,6 +35,7 @@ int dfs(int x){
 			finished[t] = true;	// 그룹의 부모에서 완전히 처리 
 			if(t == x) break;	// 부모까지 나오면 반복문 끝 
 		}
+		sort(scc.begin(), scc.end());	// 노드 오름차순 정리 
 		SCC.push_back(scc);
 	}
 	
@@ -53,6 +55,9 @@ int main(void){
 	for(int i = 1; i <= v; i++){
 		if(d[i] == 0) dfs(i);
 	}
+	// 정리
+	sort(SCC.begin(), SCC.end());
+	
 	// 출력
 	printf("%d\n", SCC.size());
 	for(int i = 0; i < SCC.size(); i++){
