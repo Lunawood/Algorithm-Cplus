@@ -72,7 +72,7 @@ int main(void){
 		printf("%d¹øÂ° SCC: ", i + 1);
 		for(int j = 0; j < SCC[i].size(); j++){
 			printf("%d ", SCC[i][j]);
-		};
+		}
 		printf("\n");
 	}
 	return 0;

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
+// 최대일치길이 
 // KMP(Knuth-Moriis-Pratt) 알고리즘 : 문자열 매칭 알고리즘.
 // 접두사와 접미사의 개념을 활용하여 반복되는 연산을 줄인 다음
 // 매칭할 문자열을 최대 일치 길이 만큼 빠르게 점프하는 기법. 
