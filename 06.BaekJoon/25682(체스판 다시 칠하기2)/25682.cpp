@@ -105,6 +105,15 @@ void total() {
 	}
 }
 
+// 3. kxk의 최대값의 첫번째 좌표
+void cstand() {
+	
+	for(int i = my; i < my + k; i++){
+		for(int j = mx; j < mx + k; j++){
+			if()
+		}
+	} 
+}
 
  
 int main(void){
@@ -132,6 +141,12 @@ int main(void){
 	
 	total();
 	
-	cout << mx << " " <<my;
+	cout << mx << " " <<my << endl;
+	
+	for(int i = my; i < my + k; i++){
+		for(int j = mx; j < mx + k; j++){
+			cout << c[i][j] << " ";
+		}cout << endl;
+	} 
 	return 0;
 }
