@@ -1,10 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
 using namespace std;
 
 int main(void){
-	int n = 54;
-	int *p; 
-	p = &n;
-	printf("%d", *p);
+	bool a = true;
+	a = !a;
+	a = !a;
+	cout << a << endl;
 }                              
