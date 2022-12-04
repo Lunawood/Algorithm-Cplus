@@ -53,9 +53,7 @@ int main(void){
 		// D or R
 		for(int i = 0; i < s.size(); i++){
 			if(s[i]=='R') {
-				cout << reverse << " -> ";
 				reverse = !reverse;	// reverse ¹Ù²ã³Ö±â
-				cout << reverse << endl;
 			} 
 			else {	// D
 				if(dq.size() > 0){
