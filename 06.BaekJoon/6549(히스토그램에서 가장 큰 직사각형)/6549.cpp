@@ -45,6 +45,7 @@ void binaryFunc(long long s, long long e){
 
 int main(void){
 	while(true){
+		ans = 0;
 		cin >> n;
 		if(n == 0) break;
 		
